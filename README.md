@@ -1,7 +1,9 @@
 # Cloud-vSwitch Project Proposal
 
 ## 1. Vision and Goals Of The Project
-Cloud vSwitch provides a VPN connection from each laptop to a central Linux server, and all the VPN connections are connected to a Linux bridge. When the interfaces on each laptop are configured, the laptops can talk to each other. High-Level Goals of Cloud vSwitch includes: 
+Cloud vSwitch provides a VPN connection from each laptop to a central Linux server, and all the VPN connections are connected to a Linux bridge. When the interfaces on each laptop are configured, the laptops can talk to each other. 
+
+High-Level Goals of Cloud vSwitch includes: 
 Allows workers to connect to each other via the cloud in a way that all appear to be on a virtual switch in a local network.
 Provide secure connection, which is TLS for encryption. Access is controlled by a client certificate used on each laptop to initiate the VPN connection to the server. 
 
