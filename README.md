@@ -36,11 +36,13 @@ Design Implications and Discussion:
 
 ## 5. Acceptance criteria
 Minimum acceptance criteria:
+
 A web application that allows users to set up an account to manage the cloud network of their organization.
 A MacOS desktop application that allows users to sign in to their organization and connect to a virtual local area network (LAN) on the Mass Open Cloud (MOC) within the organization via OpenVPN service and a virtual switch server in the network. 
 End user devices should be able to talk to each other as if they are on the same local network. Also, the VPN connection should be secured with TLS encryption and access is controlled by a client certificate used on each device to initiate the connection to the server.
 
 Stretch goals:
+
 Build cross-platform desktop applications that work on Windows/MacOS/Linux.
 Extend deployment from MOC to other cloud computing platforms such AWS.
 Add advanced user role/resource/organization management.
@@ -68,6 +70,7 @@ As a user, I can work with other connected users as if we are on the same local 
 
 ### Release #3
 Testing, bug fixes, documentation and UI improvement. 
-Release #4 (Optional)
+
+### Release #4 (Optional)
 Feature extension based on the stretch goals.
 
