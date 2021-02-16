@@ -1,7 +1,7 @@
 # Cloud vSwitch
 
 ## 1. Vision and Goals Of The Project
-Cloud vSwitch provides a VPN connection from each laptop to a central Linux server, and all the VPN connections are connected to a Linux bridge. When the interfaces on each laptop are configured, the laptops can talk to each other. 
+Cloud vSwitch is a secure and streamlined IT independent VPN as a service in the cloud. Cloud vSwitch provides a VPN connection from each laptop to a central Linux server, and all the VPN connections are connected to a Linux bridge. When the interfaces on each laptop are configured, the laptops can talk to each other. 
 
 High-Level Goals of Cloud vSwitch includes: 
 * Allows workers to connect to each other via the cloud in a way that all appear to be on a virtual switch in a local network.
