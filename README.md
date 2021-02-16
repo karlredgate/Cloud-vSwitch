@@ -31,7 +31,7 @@ Extend deployment from MOC to other cloud computing platforms such AWS.
 Add advanced user role/resource/organization management.
 
 ## 6. Release Planning
-Release #1 
+### Release #1 
 User creation: 
 As a user, I can register an account, so that I can log in in order to use this application.
 User login/logout:
@@ -40,7 +40,8 @@ User organization:
 As a user, I can create or join an organization where I would like to work remotely with my coworkers on its virtual network.
 User profile
 As a user, I can review and update my user profile so that my account information is up to date.
-Release #2 
+
+### Release #2 
 vSwitch server:
 As a user, I can instantiate a vSwitch server on the cloud for my organization, so that I can connect to it and work with my coworkers on the same virtual network. I can also terminate this server, so that I can save cloud resources when I do not need the server anymore. 
 Client login/logout:
@@ -49,7 +50,8 @@ VPN connection:
 As a user, I can make a VPN connection to the virtual network in my organization, so that I can work remotely as if I am on the physical local network in my organization. I can also disconnect after I have finished my work, so that my computer network is reset to its previous state.
 Virtual LAN:
 As a user, I can work with other connected users as if we are on the same local network, so that our connected devices such as desktops can talk to each other directly.
-Release #3
+
+### Release #3
 Testing, bug fixes, documentation and UI improvement. 
 Release #4 (Optional)
 Feature extension based on the stretch goals.
