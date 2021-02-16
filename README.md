@@ -1,24 +1,25 @@
 # Cloud-vSwitch Project Proposal
 
-1. Vision and Goals Of The Project
+## 1. Vision and Goals Of The Project
 Cloud vSwitch provides a VPN connection from each laptop to a central Linux server, and all the VPN connections are connected to a Linux bridge. When the interfaces on each laptop are configured, the laptops can talk to each other. High-Level Goals of Cloud vSwitch includes: 
 Allows workers to connect to each other via the cloud in a way that all appear to be on a virtual switch in a local network.
 Provide secure connection, which is TLS for encryption. Access is controlled by a client certificate used on each laptop to initiate the VPN connection to the server. 
-2. Users/Personas Of The Project
+
+## 2. Users/Personas Of The Project
 Cloud vSwitch will be used by the end-users of any interested users that want to connect to each other via the cloud in a way that all appear to be on a virtual switch in a local network.
 
 It does not target:
 Users that do not have some basic degree of knowledge using cloud
 Users that do not need to connect to each other via cloud
-3. Scope and Features Of The Project
+## 3. Scope and Features Of The Project
 
 
 
-4. Solution Concept
+## 4. Solution Concept
 
 
 
-5. Acceptance criteria
+## 5. Acceptance criteria
 Minimum acceptance criteria:
 A web application that allows users to set up an account to manage the cloud network of their organization.
 A MacOS desktop application that allows users to sign in to their organization and connect to a virtual local area network (LAN) on the Mass Open Cloud (MOC) within the organization via OpenVPN service and a virtual switch server in the network. 
@@ -28,7 +29,8 @@ Stretch goals:
 Build cross-platform desktop applications that work on Windows/MacOS/Linux.
 Extend deployment from MOC to other cloud computing platforms such AWS.
 Add advanced user role/resource/organization management.
-6. Release Planning
+
+## 6. Release Planning
 Release #1 
 User creation: 
 As a user, I can register an account, so that I can log in in order to use this application.
