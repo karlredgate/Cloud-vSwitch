@@ -14,12 +14,25 @@ It does not target:
 Users that do not have some basic degree of knowledge using cloud
 Users that do not need to connect to each other via cloud
 ## 3. Scope and Features Of The Project
-
+* User register/login/logout/update
+* VPN configuration (OpenStack)/connection/disconnection
+* TLS/SSL encryption
+* Access control (client certificate)
+* Linux bridge setup
 
 
 ## 4. Solution Concept
+Global Architectural Structure Of the Project:
+![wireframe](./vSwitch-general.png)
+A Walkthrough Explanation of the Architectural Structure:
+* The vSwitch portal provides an interface for users to do user/organization/instance management
+* The vSwitch server sets up and configures virtual network, and makes all the VPN connections connected to a Linux bridge
+* TLS/SSL encryption along with the access control by using client certificate provides secure connections
 
-
+Design Implications and Discussion:
+* Since this must be a secure connection, we use TLS for encryption. Also, access is controlled by a client certificate used on each laptop to initiate the VPN connection to the server. This means that the VPN server will act as a certificate authority.
+* Cloud platforms that were discussed: MOC, OpenStack
+* Network security analysis: Zeek
 
 ## 5. Acceptance criteria
 Minimum acceptance criteria:
