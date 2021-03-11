@@ -18,7 +18,12 @@ function App() {
         >
           Sign In
         </button>
-        <button className="button is-warning">
+        <button
+          className="button is-warning"
+          onClick={() =>
+            window.open("https://github.com/CS6620-S21/Cloud-vSwitch", "_blank")
+          }
+        >
           <span className="icon">
             <i className="fab fa-github"></i>
           </span>
