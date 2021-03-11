@@ -12,7 +12,7 @@
   position: relative;
 }
 
-.user-auth .action-row a {
+.user-auth .action-row .link {
   position: absolute;
   bottom: 0;
   right: 0;

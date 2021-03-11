@@ -42,7 +42,12 @@ function SignUp() {
       </div>
       <div className="action-row mt-1">
         <button className="button is-info">Sign up</button>
-        <Link to="/sign-in">Sign in</Link>
+        <div className="link">
+          <Link to="/sign-in" className="mr-3">
+            Sign in
+          </Link>
+          <Link to="/">Home</Link>
+        </div>
       </div>
     </div>
   );
