@@ -1,4 +1,4 @@
-.sign-in {
+.user-auth {
   width: 33%;
   min-width: 250px;
   min-height: 100vh;
@@ -8,11 +8,11 @@
   margin: auto;
 }
 
-.sign-in .action-row {
+.user-auth .action-row {
   position: relative;
 }
 
-.sign-in .action-row a {
+.user-auth .action-row a {
   position: absolute;
   bottom: 0;
   right: 0;

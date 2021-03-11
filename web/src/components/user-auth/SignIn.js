@@ -1,9 +1,9 @@
-import "./SignIn.css";
+import "./user-auth.css";
 import { Link } from "react-router-dom";
 
 function SignIn() {
   return (
-    <div className="sign-in">
+    <div className="user-auth">
       <h1 className="title">Sign In</h1>
       <div className="field">
         <label className="label">Email</label>
@@ -29,7 +29,7 @@ function SignIn() {
       </div>
       <div className="action-row mt-1">
         <button className="button is-info">Sign in</button>
-        <Link to="">Sign up</Link>
+        <Link to="/sign-up">Sign up</Link>
       </div>
     </div>
   );
