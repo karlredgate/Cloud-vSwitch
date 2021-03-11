@@ -1,10 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function App() {
-  const history = useHistory();
-
   return (
     <div className="app">
       <img src={logo} className="app-logo" alt="logo" />
@@ -12,23 +10,19 @@ function App() {
         Cloud vSwitch
       </h1>
       <div className="buttons">
-        <button
-          className="button is-info mr-3"
-          onClick={() => history.push("/sign-in")}
-        >
+        <Link className="button is-info mr-3" to="/sign-in">
           Sign In
-        </button>
-        <button
+        </Link>
+        <a
           className="button is-warning"
-          onClick={() =>
-            window.open("https://github.com/CS6620-S21/Cloud-vSwitch", "_blank")
-          }
+          href="https://github.com/CS6620-S21/Cloud-vSwitch"
+          target="_blank"
         >
           <span className="icon">
             <i className="fab fa-github"></i>
           </span>
           <span>GitHub</span>
-        </button>
+        </a>
       </div>
     </div>
   );

@@ -1,9 +1,7 @@
 import "./user-auth.css";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function SignIn() {
-  const history = useHistory();
-
   return (
     <div className="user-auth">
       <h1 className="title">Sign In</h1>
@@ -30,12 +28,9 @@ function SignIn() {
         </div>
       </div>
       <div className="action-row mt-1">
-        <button
-          className="button is-info"
-          onClick={() => history.push("/dashboard")}
-        >
+        <Link className="button is-info" to="/dashboard">
           Sign in
-        </button>
+        </Link>
         <div className="link">
           <Link to="/sign-up" className="mr-3">
             Sign up
