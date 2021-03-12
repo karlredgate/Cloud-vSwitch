@@ -22,7 +22,7 @@ function Home() {
           <ServerCard />
         </div>
         <div className="column is-4">
-          <ServerCard />
+          <ServerCard isNew={true} />
         </div>
       </div>
     </div>

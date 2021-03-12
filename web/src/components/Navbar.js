@@ -37,7 +37,6 @@ function Navbar() {
           <Link className="navbar-item" to="/profile">
             Profile
           </Link>
-          <a className="navbar-item">Servers</a>
           <a className="navbar-item">Organizations</a>
         </div>
 

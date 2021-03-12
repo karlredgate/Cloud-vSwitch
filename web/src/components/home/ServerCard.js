@@ -1,6 +1,16 @@
 import "./ServerCard.css";
 
-function ServerCard() {
+function ServerCard({ isNew = false }) {
+  if (isNew) {
+    return (
+      <div
+        className="card server-card is-new has-background-white-bis is-flex
+          is-justify-content-center is-align-items-center has-text-black-bis"
+      >
+        Add
+      </div>
+    );
+  }
   return (
     <div className="card server-card">
       <header className="card-header">

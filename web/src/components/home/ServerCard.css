@@ -1,3 +1,12 @@
 .server-card .card-header .card-header-icon {
   padding: 0.75rem 0.35rem;
 }
+
+.server-card {
+  height: 15rem;
+}
+
+.server-card.is-new {
+  opacity: 70%;
+  font-size: 1.2em;
+}
