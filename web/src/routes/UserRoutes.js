@@ -1,9 +1,11 @@
 import { Route, Switch } from "react-router-dom";
+import "./UserRoutes.css";
 import Home from "../components/home";
 import Navbar from "../components/Navbar";
 import Profile from "../components/profile";
 import CreateServer from "../components/home/CreateServer";
 import Organizations from "../components/organizations";
+import CreateOrganization from "../components/organizations/CreateOrganization";
 
 function UserRoutes() {
   return (
@@ -13,6 +15,7 @@ function UserRoutes() {
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/profile" component={Profile} />
+          <Route path="/organizations/new" component={CreateOrganization} />
           <Route path="/organizations" component={Organizations} />
           <Route path="/server/new" component={CreateServer} />
         </Switch>

@@ -1,4 +1,3 @@
-import "./CreateServer.css";
 import { Link } from "react-router-dom";
 
 function CreateServer() {

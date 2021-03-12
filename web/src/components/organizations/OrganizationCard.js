@@ -7,7 +7,7 @@ function OrganizationCard({ isNew = false }) {
       <Link
         className="card organization-card app-card is-new has-background-white-bis is-flex
           is-justify-content-center is-align-items-center has-text-black-bis"
-        to="/organization/new"
+        to="/organizations/new"
       >
         Add
       </Link>
