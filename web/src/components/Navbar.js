@@ -31,8 +31,12 @@ function Navbar() {
 
       <div id="navbarMenu" className="navbar-menu">
         <div className="navbar-start">
-          <a className="navbar-item">Home</a>
-          <a className="navbar-item">Profile</a>
+          <Link className="navbar-item" to="/home">
+            Home
+          </Link>
+          <Link className="navbar-item" to="/profile">
+            Profile
+          </Link>
           <a className="navbar-item">Servers</a>
           <a className="navbar-item">Organizations</a>
         </div>
