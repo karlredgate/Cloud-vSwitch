@@ -37,7 +37,9 @@ function Navbar() {
           <Link className="navbar-item" to="/profile">
             Profile
           </Link>
-          <a className="navbar-item">Organizations</a>
+          <Link className="navbar-item" to="/organizations">
+            Organizations
+          </Link>
         </div>
 
         <div className="navbar-end">

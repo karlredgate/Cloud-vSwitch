@@ -1,22 +1,22 @@
-import "./ServerCard.css";
+import "./OrganizationCard.css";
 import { Link } from "react-router-dom";
 
-function ServerCard({ isNew = false }) {
+function OrganizationCard({ isNew = false }) {
   if (isNew) {
     return (
       <Link
-        className="card server-card app-card is-new has-background-white-bis is-flex
+        className="card organization-card app-card is-new has-background-white-bis is-flex
           is-justify-content-center is-align-items-center has-text-black-bis"
-        to="/server/new"
+        to="/organization/new"
       >
         Add
       </Link>
     );
   }
   return (
-    <div className="card server-card app-card">
+    <div className="card app-card organization-card">
       <header className="card-header">
-        <p className="card-header-title">Server</p>
+        <p className="card-header-title">CS6620</p>
         <div className="is-flex px-2">
           <div className="card-header-icon" role="button">
             <span className="icon">
@@ -40,15 +40,19 @@ function ServerCard({ isNew = false }) {
             Running
           </p>
           <p>
-            <span className="has-text-weight-semibold">Organization: </span>
-            CS6620
+            <span className="has-text-weight-semibold">Location: </span>
+            Boston, MA
+          </p>
+          <p>
+            <span className="has-text-weight-semibold">Email: </span>
+            cs6620@vswitch.tech
           </p>
           <p className="has-text-weight-semibold">Description: </p>
-          <p>Test server</p>
+          <p>vSwitch server</p>
         </div>
       </div>
     </div>
   );
 }
 
-export default ServerCard;
+export default OrganizationCard;
