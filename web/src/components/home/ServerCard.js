@@ -1,14 +1,16 @@
 import "./ServerCard.css";
+import { Link } from "react-router-dom";
 
 function ServerCard({ isNew = false }) {
   if (isNew) {
     return (
-      <div
+      <Link
         className="card server-card is-new has-background-white-bis is-flex
           is-justify-content-center is-align-items-center has-text-black-bis"
+        to="/server/new"
       >
         Add
-      </div>
+      </Link>
     );
   }
   return (
