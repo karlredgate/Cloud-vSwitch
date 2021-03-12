@@ -1,8 +1,8 @@
-import logo from "./logo.svg";
-import "./App.css";
+import logo from "../logo.svg";
+import "./Landing.css";
 import { Link } from "react-router-dom";
 
-function App() {
+function Landing() {
   return (
     <div className="app">
       <img src={logo} className="app-logo" alt="logo" />
@@ -28,4 +28,4 @@ function App() {
   );
 }
 
-export default App;
+export default Landing;
