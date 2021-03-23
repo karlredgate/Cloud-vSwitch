@@ -1,14 +1,16 @@
 import "./Navbar.css";
-import logo from "../../logo.svg";
-import { Link } from "react-router-dom";
+import logo from "../logo.svg";
+import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
+  const location = useLocation();
+
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <Link
           className="navbar-item logo-link has-text-weight-semibold is-family-monospace is-size-5"
-          to="/dashboard"
+          to="/home"
         >
           <img src={logo} width="70" alt="logo" />
           <span>Cloud vSwitch</span>
@@ -29,9 +31,15 @@ function Navbar() {
 
       <div id="navbarMenu" className="navbar-menu">
         <div className="navbar-start">
-          <a className="navbar-item">Profile</a>
-          <a className="navbar-item">Servers</a>
-          <a className="navbar-item">Organizations</a>
+          <Link className="navbar-item" to="/home">
+            Home
+          </Link>
+          <Link className="navbar-item" to="/profile">
+            Profile
+          </Link>
+          <Link className="navbar-item" to="/organizations">
+            Organizations
+          </Link>
         </div>
 
         <div className="navbar-end">

@@ -28,14 +28,14 @@ function SignIn() {
         </div>
       </div>
       <div className="action-row mt-1">
-        <Link className="button is-info" to="/dashboard">
+        <Link className="button is-info" to="/home">
           Sign in
         </Link>
         <div className="link">
           <Link to="/sign-up" className="mr-3">
             Sign up
           </Link>
-          <Link to="/">Home</Link>
+          <Link to="/">Back</Link>
         </div>
       </div>
     </div>
