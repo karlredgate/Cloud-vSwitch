@@ -28,6 +28,11 @@ function OrganizationCard({ isNew = false }) {
               <i className="fas fa-pen"></i>
             </span>
           </div>
+          <div className="card-header-icon" role="button">
+            <span className="icon">
+              <i className="fas fa-user-plus"></i>
+            </span>
+          </div>
         </div>
       </header>
       <div className="card-content">
