@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Cloud vSwitch Web App
+
+Web interface for Cloud vSwitch organization and virtual server management.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+[Demo](https://vswitch.cf)
 
 ## Available Scripts
 
