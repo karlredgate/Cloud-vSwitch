@@ -17,6 +17,7 @@ function Landing() {
           className="button is-warning"
           href="https://github.com/CS6620-S21/Cloud-vSwitch"
           target="_blank"
+          rel="noreferrer"
         >
           <span className="icon">
             <i className="fab fa-github"></i>

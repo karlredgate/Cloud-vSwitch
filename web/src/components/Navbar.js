@@ -1,10 +1,8 @@
 import "./Navbar.css";
 import logo from "../logo.svg";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Navbar() {
-  const location = useLocation();
-
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
@@ -16,7 +14,7 @@ function Navbar() {
           <span>Cloud vSwitch</span>
         </Link>
 
-        <a
+        <div
           role="button"
           className="navbar-burger"
           aria-label="menu"
@@ -26,7 +24,7 @@ function Navbar() {
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
-        </a>
+        </div>
       </div>
 
       <div id="navbarMenu" className="navbar-menu">
