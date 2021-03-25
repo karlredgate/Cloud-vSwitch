@@ -64,12 +64,34 @@ function Connect() {
           <i className="fas fa-cloud" />
         </div>
       </div>
-      <div className="mt-4">
+      <div className="mt-4 mb-3">
         <span className={`icon ${connectStateClass()}`}>
           <i className="fas fa-circle" />
         </span>
-        {connectState}
+        &nbsp;{connectState}
       </div>
+      {connectState === 'Connected' && (
+        <div>
+          <div className="is-flex">
+            <div className="icon">
+              <i className="fas fa-location-arrow" />
+            </div>
+            <span title="Cloud location">&nbsp;Boston, MA</span>
+          </div>
+          <div className="is-flex">
+            <div className="icon">
+              <i className="fas fa-map-marker" />
+            </div>
+            <span title="External IP">&nbsp;35.209.35.11</span>
+          </div>
+          <div className="is-flex">
+            <div className="icon">
+              <i className="fas fa-network-wired" />
+            </div>
+            <span title="Internal IP">&nbsp;192.168.1.128</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
