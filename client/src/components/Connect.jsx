@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Switch from 'react-switch';
 import styles from './Connect.css';
 
 function Connect() {
+  const [checked, setChecked] = useState(false);
   const [connectState, setConnectState] = useState('Disconnected');
+
   const connectStateClass = () => {
     switch (connectState) {
       case 'Disconnected':
@@ -17,6 +20,10 @@ function Connect() {
       default:
         return '';
     }
+  };
+
+  const toggleChecked = () => {
+    setChecked(!checked);
   };
 
   // TODO: Implement real connect by calling API
@@ -71,7 +78,7 @@ function Connect() {
         &nbsp;{connectState}
       </div>
       {connectState === 'Connected' && (
-        <div>
+        <div className="pl-4">
           <div className="is-flex">
             <div className="icon">
               <i className="fas fa-location-arrow" />
@@ -90,6 +97,15 @@ function Connect() {
             </div>
             <span title="Internal IP">&nbsp;192.168.1.128</span>
           </div>
+          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+          <label className="is-flex mt-2">
+            <span>Show More</span>
+            <Switch
+              onChange={toggleChecked}
+              checked={checked}
+              className={styles.switch}
+            />
+          </label>
         </div>
       )}
     </div>
