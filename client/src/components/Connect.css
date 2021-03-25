@@ -1,0 +1,7 @@
+.signOut {
+  color: gray;
+}
+
+.signOut:hover {
+  color: #515151;
+}

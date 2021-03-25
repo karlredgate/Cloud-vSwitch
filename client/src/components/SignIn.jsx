@@ -21,7 +21,7 @@ function SignIn() {
         </div>
       </div>
       <div className="is-flex is-flex-direction-column">
-        <Link className="button is-info is-pulled-left my-2" to="/home">
+        <Link className="button is-info is-pulled-left my-2" to="/connect">
           Sign in
         </Link>
         <a
