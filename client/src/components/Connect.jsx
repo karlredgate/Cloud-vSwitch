@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Connect.css';
 
 function Connect() {
+  const [connectState, setConnectState] = useState('Disconnected');
+  const connectStateClass = () => {
+    switch (connectState) {
+      case 'Disconnected':
+        return 'has-text-grey-light';
+      case 'Disconnecting':
+        return 'has-text-danger';
+      case 'Connecting':
+        return 'has-text-warning';
+      case 'Connected':
+        return 'has-text-success';
+      default:
+        return '';
+    }
+  };
+
+  // TODO: Implement real connect by calling API
+  const mockConnect = () => {
+    if (connectState === 'Disconnected') {
+      setConnectState('Connecting');
+      setTimeout(() => setConnectState('Connected'), 1000);
+    } else if (connectState === 'Connected') {
+      setConnectState('Disconnecting');
+      setTimeout(() => setConnectState('Disconnected'), 1000);
+    }
+  };
+
   return (
     <div className="app-container-center">
       <div className="is-flex is-align-items-center mb-4">
@@ -12,7 +39,17 @@ function Connect() {
         </Link>
       </div>
       <div className="title is-3">Connect</div>
-      <div className="mt-3 mb-5 has-text-grey-light" role="button">
+      <div
+        className={`mt-3 mb-5 ${connectStateClass()}`}
+        role="button"
+        tabIndex={0}
+        onClick={mockConnect}
+        onKeyPress={(event) => {
+          if (event.key === 'Enter') {
+            mockConnect();
+          }
+        }}
+      >
         <i className="fas fa-power-off fa-7x" />
       </div>
       <div className="control has-icons-left">
@@ -26,6 +63,12 @@ function Connect() {
         <div className="icon is-small is-left has-text-info">
           <i className="fas fa-cloud" />
         </div>
+      </div>
+      <div className="mt-4">
+        <span className={`icon ${connectStateClass()}`}>
+          <i className="fas fa-circle" />
+        </span>
+        {connectState}
       </div>
     </div>
   );

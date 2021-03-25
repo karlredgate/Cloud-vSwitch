@@ -5,3 +5,11 @@
 .signOut:hover {
   color: #515151;
 }
+
+div[role='button'] {
+  cursor: pointer;
+}
+
+div[role='button']:not(:focus-visible) {
+  outline: none;
+}
