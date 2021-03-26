@@ -114,7 +114,7 @@ function Connect({ showInfo, setShowInfo }) {
           <Switch
             onChange={() => setShowInfo(!showInfo)}
             checked={showInfo}
-            className={styles.switch}
+            className="app-switch"
           />
         </label>
       </div>

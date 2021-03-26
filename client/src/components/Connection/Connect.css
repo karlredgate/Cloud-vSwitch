@@ -13,7 +13,3 @@ div[role='button'] {
 div[role='button']:not(:focus-visible) {
   outline: none;
 }
-
-.switch {
-  transform: scale(0.75);
-}
