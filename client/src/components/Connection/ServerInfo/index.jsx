@@ -10,6 +10,32 @@ const allServers = [
   { id: 3, status: 'Offline' },
   { id: 4, status: 'Offline' },
 ];
+const onlineUsers = [
+  {
+    name: 'User1',
+    ip: '192.168.1.110',
+  },
+  {
+    name: 'User2',
+    ip: '192.168.1.112',
+  },
+  {
+    name: 'User3',
+    ip: '192.168.1.125',
+  },
+  {
+    name: 'User4',
+    ip: '192.168.1.178',
+  },
+  {
+    name: 'User5',
+    ip: '192.168.1.180',
+  },
+  {
+    name: 'Test User 6',
+    ip: '192.168.1.200',
+  },
+];
 
 function ServerInfo() {
   const [showOfflineServer, setShowOfflineServer] = useState(false);
@@ -20,6 +46,26 @@ function ServerInfo() {
 
   return (
     <div className="py-6 pr-6">
+      <div className="title is-5">Online Users</div>
+      <div className="mb-5">
+        Other users connected to this vSwitch Server currently.
+      </div>
+      <div className="box">
+        <div className="columns is-multiline">
+          {onlineUsers.map((user) => (
+            <div
+              className="column is-half-tablet is-one-third-widescreen"
+              key={user.name}
+            >
+              <span className="icon">
+                <i className="fas fa-user fa-sm" />
+              </span>{' '}
+              {user.name}: {user.ip}
+            </div>
+          ))}
+        </div>
+      </div>
+      <hr />
       <div className="title is-5">Available Servers</div>
       <div className="is-flex is-justify-content-space-between mb-5">
         <span>
