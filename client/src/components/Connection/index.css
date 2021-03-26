@@ -1,0 +1,9 @@
+.left {
+  position: fixed;
+  width: 50%;
+}
+
+.right {
+  float: right;
+  width: 50%;
+}
