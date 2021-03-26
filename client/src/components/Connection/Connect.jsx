@@ -21,19 +21,29 @@ function Connect({ showInfo, setShowInfo }) {
     }
   };
 
-  // TODO: Implement real disconnect by calling API
-  const mockDisconnect = () => {
-    setConnectState('Disconnected');
-  };
-
   // TODO: Implement real connect by calling API
   const mockConnect = () => {
+    setConnectState('Connecting');
+    setTimeout(() => {
+      setConnectState('Connected');
+      setShowInfo(true);
+    }, 1000);
+  };
+
+  // TODO: Implement real disconnect by calling API
+  const mockDisconnect = () => {
+    setConnectState('Disconnecting');
+    setTimeout(() => {
+      setConnectState('Disconnected');
+      setShowInfo(false);
+    }, 1000);
+  };
+
+  const toggleConnect = () => {
     if (connectState === 'Disconnected') {
-      setConnectState('Connecting');
-      setTimeout(() => setConnectState('Connected'), 1000);
+      mockConnect();
     } else if (connectState === 'Connected') {
-      setConnectState('Disconnecting');
-      setTimeout(mockDisconnect, 1000);
+      mockDisconnect();
     }
   };
 
@@ -55,10 +65,10 @@ function Connect({ showInfo, setShowInfo }) {
         className={`mt-3 mb-5 ${connectStateClass()}`}
         role="button"
         tabIndex={0}
-        onClick={mockConnect}
+        onClick={toggleConnect}
         onKeyPress={(event) => {
           if (event.key === 'Enter') {
-            mockConnect();
+            toggleConnect();
           }
         }}
       >
@@ -106,17 +116,17 @@ function Connect({ showInfo, setShowInfo }) {
               </div>
               <span title="Internal IP">&nbsp;192.168.1.128</span>
             </div>
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label className="is-flex mt-2">
+              <span>Show More</span>
+              <Switch
+                onChange={() => setShowInfo(!showInfo)}
+                checked={showInfo}
+                className="app-switch"
+              />
+            </label>
           </>
         )}
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label className="is-flex mt-2">
-          <span>Show More</span>
-          <Switch
-            onChange={() => setShowInfo(!showInfo)}
-            checked={showInfo}
-            className="app-switch"
-          />
-        </label>
       </div>
     </div>
   );
