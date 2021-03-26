@@ -6,6 +6,29 @@ import {
   MenuItemConstructorOptions,
 } from 'electron';
 
+const submenuForHelp = [
+  {
+    label: 'Website',
+    click() {
+      shell.openExternal(
+        process.env.web_app_url || 'https://cloud-vswitch.vercel.app'
+      );
+    },
+  },
+  {
+    label: 'GitHub',
+    click() {
+      shell.openExternal('https://github.com/CS6620-S21/Cloud-vSwitch');
+    },
+  },
+  {
+    label: 'Search Issues',
+    click() {
+      shell.openExternal('https://github.com/CS6620-S21/Cloud-vSwitch/issues');
+    },
+  },
+];
+
 interface DarwinMenuItemConstructorOptions extends MenuItemConstructorOptions {
   selector?: string;
   submenu?: DarwinMenuItemConstructorOptions[] | Menu;
@@ -54,17 +77,17 @@ export default class MenuBuilder {
 
   buildDarwinTemplate(): MenuItemConstructorOptions[] {
     const subMenuAbout: DarwinMenuItemConstructorOptions = {
-      label: 'Electron',
+      label: 'Cloud vSwitch',
       submenu: [
         {
-          label: 'About ElectronReact',
+          label: 'About Cloud vSwitch',
           selector: 'orderFrontStandardAboutPanel:',
         },
         { type: 'separator' },
         { label: 'Services', submenu: [] },
         { type: 'separator' },
         {
-          label: 'Hide ElectronReact',
+          label: 'Hide Cloud vSwitch',
           accelerator: 'Command+H',
           selector: 'hide:',
         },
@@ -153,34 +176,7 @@ export default class MenuBuilder {
     };
     const subMenuHelp: MenuItemConstructorOptions = {
       label: 'Help',
-      submenu: [
-        {
-          label: 'Learn More',
-          click() {
-            shell.openExternal('https://electronjs.org');
-          },
-        },
-        {
-          label: 'Documentation',
-          click() {
-            shell.openExternal(
-              'https://github.com/electron/electron/tree/master/docs#readme'
-            );
-          },
-        },
-        {
-          label: 'Community Discussions',
-          click() {
-            shell.openExternal('https://www.electronjs.org/community');
-          },
-        },
-        {
-          label: 'Search Issues',
-          click() {
-            shell.openExternal('https://github.com/electron/electron/issues');
-          },
-        },
-      ],
+      submenu: submenuForHelp,
     };
 
     const subMenuView =
@@ -254,34 +250,7 @@ export default class MenuBuilder {
       },
       {
         label: 'Help',
-        submenu: [
-          {
-            label: 'Learn More',
-            click() {
-              shell.openExternal('https://electronjs.org');
-            },
-          },
-          {
-            label: 'Documentation',
-            click() {
-              shell.openExternal(
-                'https://github.com/electron/electron/tree/master/docs#readme'
-              );
-            },
-          },
-          {
-            label: 'Community Discussions',
-            click() {
-              shell.openExternal('https://www.electronjs.org/community');
-            },
-          },
-          {
-            label: 'Search Issues',
-            click() {
-              shell.openExternal('https://github.com/electron/electron/issues');
-            },
-          },
-        ],
+        submenu: submenuForHelp,
       },
     ];
 
