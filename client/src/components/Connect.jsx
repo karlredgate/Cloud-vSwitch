@@ -36,12 +36,21 @@ function Connect() {
       setTimeout(() => setConnectState('Disconnected'), 1000);
     }
   };
+  // TODO: Implement real disconnect by calling API
+  const mockDisconnect = () => {
+    setConnectState('Disconnected');
+  };
 
   return (
     <div className="app-container-center">
       <div className="is-flex is-align-items-center mb-4">
         <div className="is-size-5">Test Username</div>
-        <Link className={`${styles.signOut} icon ml-2`} title="Sign out" to="/">
+        <Link
+          className={`${styles.signOut} icon ml-2`}
+          title="Sign out"
+          to="/"
+          onClick={mockDisconnect}
+        >
           <i className="fas fa-sign-out-alt fa-lg" />
         </Link>
       </div>
@@ -61,8 +70,11 @@ function Connect() {
       </div>
       <div className="control has-icons-left">
         <div className="select is-rounded is-info">
-          <select>
-            <option selected>CS6620</option>
+          <select
+            defaultValue="CS6620"
+            disabled={connectState !== 'Disconnected'}
+          >
+            <option>CS6620</option>
             <option>My Cloud 1</option>
             <option>My Cloud 2</option>
           </select>
