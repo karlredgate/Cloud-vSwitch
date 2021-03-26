@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import Switch from 'react-switch';
 import styles from './Connect.css';
 
-function Connect() {
-  const [checked, setChecked] = useState(false);
+function Connect({ showInfo, setShowInfo }) {
   const [connectState, setConnectState] = useState('Disconnected');
 
   const connectStateClass = () => {
@@ -22,8 +21,9 @@ function Connect() {
     }
   };
 
-  const toggleChecked = () => {
-    setChecked(!checked);
+  // TODO: Implement real disconnect by calling API
+  const mockDisconnect = () => {
+    setConnectState('Disconnected');
   };
 
   // TODO: Implement real connect by calling API
@@ -33,12 +33,8 @@ function Connect() {
       setTimeout(() => setConnectState('Connected'), 1000);
     } else if (connectState === 'Connected') {
       setConnectState('Disconnecting');
-      setTimeout(() => setConnectState('Disconnected'), 1000);
+      setTimeout(mockDisconnect, 1000);
     }
-  };
-  // TODO: Implement real disconnect by calling API
-  const mockDisconnect = () => {
-    setConnectState('Disconnected');
   };
 
   return (
@@ -89,37 +85,39 @@ function Connect() {
         </span>
         &nbsp;{connectState}
       </div>
-      {connectState === 'Connected' && (
-        <div className="pl-4">
-          <div className="is-flex">
-            <div className="icon">
-              <i className="fas fa-location-arrow" />
+      <div className="pl-4">
+        {connectState === 'Connected' && (
+          <>
+            <div className="is-flex">
+              <div className="icon">
+                <i className="fas fa-location-arrow" />
+              </div>
+              <span title="Cloud location">&nbsp;Boston, MA</span>
             </div>
-            <span title="Cloud location">&nbsp;Boston, MA</span>
-          </div>
-          <div className="is-flex">
-            <div className="icon">
-              <i className="fas fa-map-marker" />
+            <div className="is-flex">
+              <div className="icon">
+                <i className="fas fa-map-marker" />
+              </div>
+              <span title="External IP">&nbsp;35.209.35.11</span>
             </div>
-            <span title="External IP">&nbsp;35.209.35.11</span>
-          </div>
-          <div className="is-flex">
-            <div className="icon">
-              <i className="fas fa-network-wired" />
+            <div className="is-flex">
+              <div className="icon">
+                <i className="fas fa-network-wired" />
+              </div>
+              <span title="Internal IP">&nbsp;192.168.1.128</span>
             </div>
-            <span title="Internal IP">&nbsp;192.168.1.128</span>
-          </div>
-          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-          <label className="is-flex mt-2">
-            <span>Show More</span>
-            <Switch
-              onChange={toggleChecked}
-              checked={checked}
-              className={styles.switch}
-            />
-          </label>
-        </div>
-      )}
+          </>
+        )}
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+        <label className="is-flex mt-2">
+          <span>Show More</span>
+          <Switch
+            onChange={() => setShowInfo(!showInfo)}
+            checked={showInfo}
+            className={styles.switch}
+          />
+        </label>
+      </div>
     </div>
   );
 }

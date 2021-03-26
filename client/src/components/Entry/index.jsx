@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
-import styles from './Entry.css';
+import logo from '../../../assets/logo.svg';
+import styles from './index.css';
 import SignIn from './SignIn';
 
 function Entry() {
