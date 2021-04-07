@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ServerCard.css';
+import styles from './ServerCard.module.css';
 
 function ServerCard({ status = 'Unknown', ip = 'N/A' }) {
   const getStatusIconClass = () => {

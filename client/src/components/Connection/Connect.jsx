@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Switch from 'react-switch';
-import styles from './Connect.css';
+import styles from './Connect.module.css';
 
 function Connect({ showInfo, setShowInfo }) {
   const [connectState, setConnectState] = useState('Disconnected');

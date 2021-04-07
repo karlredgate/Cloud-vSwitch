@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Connect from './Connect';
 import ServerInfo from './ServerInfo';
-import styles from './index.css';
+import styles from './index.module.css';
 
 function Connection() {
   const [showInfo, setShowInfo] = useState(false);
