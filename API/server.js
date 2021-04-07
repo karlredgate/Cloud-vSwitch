@@ -1,16 +1,16 @@
 // Dependencies
-const express = require('express');
-const helmet = require('helmet');
-const path = require('path');
+const express = require("express");
+const helmet = require("helmet");
+const path = require("path");
 
 // Firebase
-const admin = require('firebase-admin');
+const admin = require("firebase-admin");
 const serviceAccount = require(process.env.SERVICE_ACCOUNT);
 
 // Set up Firebase
 admin.initializeApp({
-                      credential: admin.credential.cert(serviceAccount)
-                    });
+  credential: admin.credential.cert(serviceAccount),
+});
 const db = admin.firestore();
 
 // Sets up the Express App
@@ -27,37 +27,37 @@ app.use(express.json());
 const users = [
   {
     id: 1,
-    userName: 'yoda',
-    password: 'YODA900',
-    email: 'yoda@gmail.com',
-    org: 'Star Wars'
+    userName: "yoda",
+    password: "YODA900",
+    email: "yoda@gmail.com",
+    org: "Star Wars",
   },
   {
     id: 2,
-    userName: 'darthmaul',
-    password: 'DarthMaul200',
-    email: 'darthmaul@gmail.com',
-    org: 'Star Wars'
+    userName: "darthmaul",
+    password: "DarthMaul200",
+    email: "darthmaul@gmail.com",
+    org: "Star Wars",
   },
   {
     id: 3,
-    userName: 'obiwankenobi',
-    password: 'ObiWanKenobi55',
-    email: 'obiwankenobi@gmail.com',
-    org: 'Star Wars'
-  }
+    userName: "obiwankenobi",
+    password: "ObiWanKenobi55",
+    email: "obiwankenobi@gmail.com",
+    org: "Star Wars",
+  },
 ];
 
 // Routes
 
 // Basic route that sends the user first to the AJAX Page
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'view.html')));
+app.get("/", (req, res) => res.sendFile(path.join(__dirname, "view.html")));
 
 // Get a collection of users
-app.get('/api/users', (req, res) => res.json(users));
+app.get("/api/users", (req, res) => res.json(users));
 
 // Get a user by userId
-app.get('/api/users/:userId', (req, res) => {
+app.get("/api/users/:userId", (req, res) => {
   const chosen = req.params.userId;
 
   // console.log(chosen);
@@ -77,26 +77,32 @@ app.get('/api/users/:userId', (req, res) => {
 
 // Create a new user
 app.post('/api/users', (req, res) => {
-  let duplicateUserName = false;
-  const newUser = req.body;
-  for (let i = 0; i < users.length; i++) {
-    if (users[i].userName == newUser.userName) {
-      duplicateUserName = true;
-    }
-  }
-  if (duplicateUserName) {
-    return res.json(false);
-  } else {
-    users.push(newUser);
-    return res.json(newUser);
-  }
+  const { email, password, displayName } = req.body;
+
+  admin
+    .auth()
+    .createUser({
+      email,
+      password,
+      displayName,
+    })
+    .then(({ uid, email, displayName }) => {
+      res.status(200).json({ uid, email, displayName });
+    })
+    .catch((error) => {
+      console.log("Error creating new user:", error);
+      res.sendStatus(500);
+    });
 });
 
 // Update a user's info
-app.put('/api/users', (req, res) => {
+app.put("/api/users", (req, res) => {
   const updatedUser = req.body;
   for (let i = 0; i < users.length; i++) {
-    if (users[i].id == updatedUser.id && users[i].userName === updatedUser.userName) {
+    if (
+      users[i].id == updatedUser.id &&
+      users[i].userName === updatedUser.userName
+    ) {
       users[i].password = updatedUser.password;
       users[i].email = updatedUser.email;
       users[i].org = updatedUser.org;
@@ -107,10 +113,13 @@ app.put('/api/users', (req, res) => {
 });
 
 // Delete a user
-app.delete('/api/users', (req, res) => {
+app.delete("/api/users", (req, res) => {
   const deletedUser = req.body;
   for (let i = 0; i < users.length; i++) {
-    if (users[i].id == deletedUser.id && users[i].userName === deletedUser.userName) {
+    if (
+      users[i].id == deletedUser.id &&
+      users[i].userName === deletedUser.userName
+    ) {
       delete users[i];
       return res.json(deletedUser);
     }
