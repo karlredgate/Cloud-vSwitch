@@ -1,6 +1,6 @@
 // Dependencies
 const express = require('express');
-const helmet = require("helmet");
+const helmet = require('helmet');
 const path = require('path');
 
 // Firebase
@@ -25,30 +25,30 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const users = [
-    {
-      id: 1,
-      userName: 'yoda',
-      password: 'YODA900',
-      email: 'yoda@gmail.com',
-      org: 'Star Wars'
-    },
-    {
-      id: 2,
-      userName: 'darthmaul',
-      password: 'DarthMaul200',
-      email: 'darthmaul@gmail.com',
-      org: 'Star Wars'
-    },
-    {
-      id: 3,
-      userName: 'obiwankenobi',
-      password: 'ObiWanKenobi55',
-      email: 'obiwankenobi@gmail.com',
-      org: 'Star Wars'
-    },
-  ];
+  {
+    id: 1,
+    userName: 'yoda',
+    password: 'YODA900',
+    email: 'yoda@gmail.com',
+    org: 'Star Wars'
+  },
+  {
+    id: 2,
+    userName: 'darthmaul',
+    password: 'DarthMaul200',
+    email: 'darthmaul@gmail.com',
+    org: 'Star Wars'
+  },
+  {
+    id: 3,
+    userName: 'obiwankenobi',
+    password: 'ObiWanKenobi55',
+    email: 'obiwankenobi@gmail.com',
+    org: 'Star Wars'
+  }
+];
 
-  // Routes
+// Routes
 
 // Basic route that sends the user first to the AJAX Page
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'view.html')));
@@ -67,9 +67,9 @@ app.get('/api/users/:userId', (req, res) => {
   otherwise tell the user no character was found */
 
   for (let i = 0; i < users.length; i++) {
-      if (chosen == users[i].id) {
-        return res.json(users[i]);
-      }
+    if (chosen == users[i].id) {
+      return res.json(users[i]);
+    }
   }
 
   return res.json(false);
@@ -117,7 +117,6 @@ app.delete('/api/users', (req, res) => {
   }
   return res.json(false);
 });
-
 
 // Starts the server to begin listening
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
