@@ -1,10 +1,24 @@
 // Dependencies
 const express = require('express');
+const helmet = require("helmet");
 const path = require('path');
+
+// Firebase
+const admin = require('firebase-admin');
+const serviceAccount = require(process.env.SERVICE_ACCOUNT);
+
+// Set up Firebase
+admin.initializeApp({
+                      credential: admin.credential.cert(serviceAccount)
+                    });
+const db = admin.firestore();
 
 // Sets up the Express App
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT;
+
+// Secure app
+app.use(helmet());
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -33,7 +47,7 @@ const users = [
       org: 'Star Wars'
     },
   ];
-  
+
   // Routes
 
 // Basic route that sends the user first to the AJAX Page
