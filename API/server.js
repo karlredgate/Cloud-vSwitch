@@ -1,6 +1,7 @@
 // Dependencies
 const express = require("express");
 const helmet = require("helmet");
+const cors = require("cors");
 const path = require("path");
 
 // Firebase
@@ -19,6 +20,14 @@ const PORT = process.env.PORT;
 
 // Secure app
 app.use(helmet());
+
+// Allow CORS from front end
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN,
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  })
+);
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
