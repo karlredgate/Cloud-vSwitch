@@ -76,8 +76,12 @@ app.get("/api/users/:userId", (req, res) => {
 });
 
 // Create a new user
-app.post('/api/users', (req, res) => {
+app.post("/api/users", (req, res) => {
   const { email, password, displayName } = req.body;
+
+  if (!email || !password || !displayName) {
+    res.sendStatus(400);
+  }
 
   admin
     .auth()
@@ -86,9 +90,7 @@ app.post('/api/users', (req, res) => {
       password,
       displayName,
     })
-    .then(({ uid, email, displayName }) => {
-      res.status(200).json({ uid, email, displayName });
-    })
+    .then(() => res.sendStatus(200))
     .catch((error) => {
       console.log("Error creating new user:", error);
       res.sendStatus(500);
