@@ -26,5 +26,23 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDp61SVpIL3N16RIfZKmMbir-BqXJH5ui8",
+        authDomain: "cloud-vswitch.firebaseapp.com",
+        projectId: "cloud-vswitch",
+        storageBucket: "cloud-vswitch.appspot.com",
+        messagingSenderId: "81459174734",
+        appId: "1:81459174734:web:94cfbdd6bd1ee69adb121f"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
   </body>
 </html>

@@ -38,7 +38,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "globals": {
+      "firebase": "readonly"
+    }
   },
   "browserslist": {
     "production": [
