@@ -27,6 +27,8 @@ function UserRoutes() {
         </div>
       </>
     );
+  } else if (auth.user === null) {
+    return <></>;
   } else {
     return (
       <Redirect

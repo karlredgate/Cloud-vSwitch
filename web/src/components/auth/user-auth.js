@@ -19,34 +19,44 @@ export const useAuth = () => {
 function useProvideAuth() {
   const [user, setUser] = useState(null);
 
+  // Get a simple user object only with useful data
+  const appUser = (authUser) => ({
+    uid: authUser.uid,
+    email: authUser.email,
+    displayName: authUser.displayName,
+  });
+
   // Wrap any Firebase methods we want to use making sure
   // to save the user to state.
-  const signIn = (email, password) => {
+  const signIn = (email, password) =>
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then((userCredential) => setUser(userCredential.user))
+      .then((userCredential) => {
+        setUser(appUser(userCredential.user));
+        return true;
+      })
       .catch((error) => {
         // TODO: Notify error
         console.log(`${error.code}: ${error.message}`);
+        return false;
       });
-  };
 
   // Subscribe to user on mount
   // Because this sets state in the callback it will cause any
   // component that utilizes this hook to re-render with the
   // latest auth object.
   useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
+    const unsubscribe = firebase.auth().onAuthStateChanged((authUser) => {
+      if (authUser) {
+        setUser(appUser(authUser));
       } else {
         setUser(false);
       }
     });
     // Cleanup subscription on unmount
     return () => unsubscribe();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   // Return the user object and auth methods
   return {
     user,
