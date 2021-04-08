@@ -102,7 +102,7 @@ app.post("/api/users", (req, res) => {
     .then(() => res.sendStatus(200))
     .catch((error) => {
       console.log("Error creating new user:", error);
-      res.sendStatus(500);
+      res.status(500).send(error.errorInfo.message);
     });
 });
 
