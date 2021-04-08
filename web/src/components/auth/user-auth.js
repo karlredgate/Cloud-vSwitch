@@ -42,6 +42,10 @@ function useProvideAuth() {
         return false;
       });
 
+  const signOut = () => {
+    firebase.auth().signOut();
+  };
+
   // Subscribe to user on mount
   // Because this sets state in the callback it will cause any
   // component that utilizes this hook to re-render with the
@@ -61,5 +65,6 @@ function useProvideAuth() {
   return {
     user,
     signIn,
+    signOut,
   };
 }

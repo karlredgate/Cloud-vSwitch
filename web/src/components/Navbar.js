@@ -1,8 +1,17 @@
 import "./Navbar.css";
 import logo from "../logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useAuth } from "./auth/user-auth";
 
 function Navbar() {
+  const auth = useAuth();
+  const history = useHistory();
+
+  const signOut = () => {
+    auth.signOut();
+    history.push("/");
+  };
+
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
@@ -42,9 +51,9 @@ function Navbar() {
 
         <div className="navbar-end">
           <div className="navbar-item">
-            <Link className="button is-light" to="/">
+            <button className="button is-light" onClick={signOut}>
               Sign out
-            </Link>
+            </button>
           </div>
         </div>
       </div>
