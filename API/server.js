@@ -86,7 +86,7 @@ app.get("/", (req, res) => res.sendFile(path.join(__dirname, "view.html")));
 // });
 
 // Create a new user
-app.post("/api/users", (req, res) => {
+app.post("/users", (req, res) => {
   const { email, password, displayName } = req.body;
 
   if (!email || !password || !displayName) {
