@@ -2,7 +2,7 @@
 const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
-// const path = require("path");
+const path = require("path");
 const admin = require("firebase-admin");
 
 // Set up Firebase
@@ -61,8 +61,7 @@ app.use(express.json());
 // Routes
 
 // Basic route that sends the user first to the AJAX Page
-// app.get("/", (req, res) => res.sendFile(path.join(__dirname, "view.html")));
-app.get("/", (req, res) => res.send("Cloud vSwitch API"));
+app.get("/", (req, res) => res.sendFile(path.join(__dirname, "view.html")));
 
 // Get a collection of users
 // app.get("/api/users", (req, res) => res.json(users));
