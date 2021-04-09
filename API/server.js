@@ -3,14 +3,15 @@ const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 const path = require("path");
-
-// Firebase
 const admin = require("firebase-admin");
-const serviceAccount = require("./keys/cloud-vswitch-firebase-adminsdk.json");
 
 // Set up Firebase
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert({
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+    privateKey: process.env.FIREBASE_PRIVATE_KEY,
+  }),
 });
 // const db = admin.firestore();
 
