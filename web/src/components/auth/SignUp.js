@@ -1,8 +1,9 @@
 import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
-import { createUser } from "../../services/userService";
+import { useAuth } from "./user-auth";
 
 function SignUp() {
+  const auth = useAuth();
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,11 +11,7 @@ function SignUp() {
   const [lastName, setLastName] = useState("");
 
   const signUp = () => {
-    createUser({
-      email,
-      password,
-      displayName: `${firstName} ${lastName}`,
-    }).then((res) => {
+    auth.signUp(email, password, firstName, lastName).then((res) => {
       if (res) {
         history.push("/home");
       }

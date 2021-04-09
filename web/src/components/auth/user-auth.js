@@ -1,5 +1,6 @@
 import "./user-auth.css";
 import React, { useState, useEffect, useContext, createContext } from "react";
+import { createUser } from "../../services/userService";
 
 // useAuth hook: https://usehooks.com/useAuth/
 
@@ -46,6 +47,18 @@ function useProvideAuth() {
     firebase.auth().signOut();
   };
 
+  const signUp = async (email, password, firstName, lastName) => {
+    const res = await createUser({
+      email,
+      password,
+      displayName: `${firstName} ${lastName}`,
+    });
+    if (res) {
+      return await signIn(email, password);
+    }
+    return false;
+  };
+
   // Subscribe to user on mount
   // Because this sets state in the callback it will cause any
   // component that utilizes this hook to re-render with the
@@ -66,5 +79,6 @@ function useProvideAuth() {
     user,
     signIn,
     signOut,
+    signUp,
   };
 }
