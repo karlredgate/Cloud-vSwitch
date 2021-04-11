@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 // Dependencies
 const express = require("express");
 const helmet = require("helmet");
